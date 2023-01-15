@@ -1,12 +1,20 @@
 import React, { useState } from "react";
 import "./singleCard.css";
 
-const SingleCard = ({ card }) => {
+const SingleCard = ({ card, handleChoice, flipped }) => {
+  const handleClick = () => {
+    handleChoice(card);
+  };
   return (
     <div className="card">
-      <div>
+      <div className={flipped ? "flipped" : ""}>
         <img src={card.src} className="front" alt="card front" />
-        <img src="/img/cover.png" alt="card back" classname="back" />
+        <img
+          src="/img/cover.png"
+          alt="card back"
+          className="back"
+          onClick={handleClick}
+        />
       </div>
     </div>
   );
